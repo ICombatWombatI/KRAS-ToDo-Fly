@@ -1,7 +1,7 @@
 import { createBrowserRouter, useRouteError } from "react-router-dom";
-import { todosRoute } from "./app/containers/todos-page/todos-page.loader";
+import { boardsRoute } from "./app/containers/boards/boards.loader";
+import { profileRoute } from "./app/containers/profile/profile.loader";
 import { App } from "./App";
-import { containerRoute } from "./app/containers/container-page/container-page.loader";
 
 export const router = createBrowserRouter([
   {
@@ -11,19 +11,8 @@ export const router = createBrowserRouter([
       {
         errorElement: <ErrorPage />,
         children: [
-          {
-            path: "/",
-            ...containerRoute,
-            children: [
-              { 
-                path: "todos/:boardId", 
-                children: [
-                  { index: true, ...todosRoute }
-                ]
-              },
-            ]
-          },
-          //{ path: "profile", ...profileRoute },
+          { path: "/", ...boardsRoute },
+          { path: "profile", ...profileRoute },
           { path: "*", element: <h1>404 - Page Not Found</h1> },
         ],
       },

@@ -1,0 +1,59 @@
+@import '../variables/variables.scss';
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 21px;
+}
+
+.body_3 {
+  color: $black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 18.75px;
+  word-spacing: 0;
+}
+
+.body_2 {
+  color: $black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  // line-height: 1.5rem;
+  // word-spacing: 2px;
+}
+
+.body_1 {
+  color: $black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  // line-height: 1.5rem;
+  // word-spacing: 2;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 18.75px;
+  // word-spacing: 2;
+}
+
+.caption {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  // line-height: 1.5px;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.spacing-1 {
+  letter-spacing: 1px;
+}

@@ -1,6 +1,7 @@
 import { GenericAbortSignal } from "axios";
 import { getBoards } from "../../api/boards";
-import { ContainerPage } from "./container-page";
+import { Boards } from "./boards";
+import { todosRoute } from "./todos/todos.loader";
 
 async function loader({ request: { signal } } : { request: { signal: GenericAbortSignal }}) {
   const boards = getBoards({ signal });
@@ -10,7 +11,15 @@ async function loader({ request: { signal } } : { request: { signal: GenericAbor
   }
 }
 
-export const containerRoute = {
+export const boardsRoute = {
   loader,
-  element: <ContainerPage/>
+  element: <Boards/>,
+  children: [
+    { 
+      path: "todos/:boardId", 
+      children: [
+        { index: true, ...todosRoute }
+      ]
+    },
+  ]
 }
