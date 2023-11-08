@@ -1,0 +1,47 @@
+@import '../variables/variables.scss';
+
+.kr-input-container {
+	padding: 0 8px;
+	border-bottom: 1px solid white;
+	position: relative;
+
+	&:focus-within {
+		.underline {
+			background-color: $secondary;
+			height: 2px;
+			width: 100%;
+
+			transition: width .3s;
+		}
+	}
+
+	.underline {
+		background-color: $secondary;
+		height: 2px;
+		width: 100%;
+
+		transition: width .3s;
+	}
+
+	.kr-input {
+		border: none;
+		background-color: #ffffff00;
+		min-height: 28px;
+
+		color: white;
+
+		&:focus-visible {
+			outline: none;
+		}
+	}
+
+	.underline {
+		position: absolute;
+		display: inline-block;
+		width: 0;
+		height: 2x;
+		left: 0;
+		bottom: -1px;
+		animation-duration: 10ms;
+	}
+}
