@@ -1,6 +1,6 @@
 import { GenericAbortSignal } from "axios";
-import { getTodosByBoardId } from "../../../api/todos";
 import { Todos } from "./todos";
+import { getTodosByBoardId } from "../../api/todos";
 
 async function loader({ request: { signal }, params: { boardId } } : { request: { signal: GenericAbortSignal }, params: any}) {
   const todos = getTodosByBoardId(boardId, { signal });

@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
+import { Header } from './app/components/header/header';
 
 export function App() {
   return (
     <div className='container'>
-      <div className='header'> </div>
+      <Header/>
       <div className='content'>
         <Outlet/>
       </div>

@@ -14,6 +14,10 @@ html,
 	height: 100%;
 }
 
+#root {
+	overflow: hidden;
+}
+
 body {
 	font-family: 'Roboto';
 	line-height: inherit;
@@ -26,16 +30,13 @@ body {
 
 	height: 100%;
 
+	&.row {
+		flex-direction: row;
+	}
+
 	.content {
 		flex: 1;
 	}
-}
-
-.header {
-	min-height: 50px;
-	width: 100%;
-
-	background-color: rgb(42, 42, 42);
 }
 
 .footer {
@@ -43,80 +44,4 @@ body {
 	width: 100%;
 
 	background-color: rgb(42, 42, 42);
-}
-
-.container-page {
-	display: flex;
-	height: 100%;
-
-	.content {
-		width: 100%;
-	}
-
-	.nav-left {
-		padding: 16px;
-		min-width: 200px;
-		background-color: rgb(32, 32, 32);
-
-		margin-left: -200px;
-		transition: all 0.6s;
-
-		&.expanded {
-			margin-left: 0;
-
-			.nav-control {
-				.control-action {
-					button {
-						margin-left: 0;
-					}
-				}
-			}
-		}
-
-		.nav-control {
-			display: flex;
-			position: relative;
-
-			.control-desc {
-				display: flex;
-				align-items: center;
-				flex: 1;
-			}
-
-			.control-action {
-				position: relative;
-				width: 30px;
-				height: 30px;
-
-				button {
-					width: 30px;
-					height: 30px;
-					position: absolute;
-
-					cursor: pointer;
-
-					transition: all 0.6s;
-					margin-left: 60px;
-				}
-			}
-		}
-
-		.board-links {
-			margin-top: 16px;
-
-			.board-link {
-				margin: 8px 0;
-
-				cursor: pointer;
-
-				&:first-child {
-					margin-top: 0;
-				}
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
 }

@@ -6,7 +6,9 @@ export function TodoCard({ todo } : {todo: Todo} ) {
 
   return (
   <div className='card'>
-    {todo.title}
+    <span className='body_1 medium-white'> 
+      {todo.title}
+    </span>
   </div>
   )
 }
