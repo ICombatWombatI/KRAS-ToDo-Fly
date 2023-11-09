@@ -7,8 +7,6 @@ import { TodoControl } from './todo-control/todo-control';
 export function Todos() {
   const { todos } = useLoaderData() as { todos: Todo[] };
 
-  console.log(todos)
-
   return (
   <div className='todos'>
     <TodoControl/>

@@ -1,4 +1,4 @@
- import { KeyboardEvent, createRef, useState } from 'react';
+ import { KeyboardEvent, createRef, useEffect, useState } from 'react';
 
  export enum KrInputType {
   TEXT = 'text',
@@ -7,23 +7,24 @@
 }
 
 interface KrInputProps {
-  type?: KrInputType,
-  onAction?: (data: string) => void
+  type?: KrInputType;
+  focus?: boolean;
+  onEnterDown?: (text: string) => void;
 }
 
 const KrInput = (props : KrInputProps) => {
   const [value, setValue] = useState('');
   const descRef = createRef<HTMLInputElement>();
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && props.onAction) {
-      descRef.current?.blur();
+  useEffect(() => {
+    if (props.focus) {
+      descRef.current?.focus();
     }
-  };
+  }, []);
 
-  const handleBlur = () => {
-    if (props.onAction) {
-      props.onAction(value);
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && props.onEnterDown) {
+      props.onEnterDown(value);
     }
   };
 
@@ -34,8 +35,8 @@ const KrInput = (props : KrInputProps) => {
         ref={descRef}
         value={value} 
         onChange={e => setValue(e.target.value)}
-        onBlur={handleBlur}
-        type={props.type ?? KrInputType.TEXT} onKeyDown={handleKeyDown} />
+        type={props.type ?? KrInputType.TEXT} 
+        onKeyDown={handleKeyDown} />
       <div className="underline"></div>
     </div>
   </>);

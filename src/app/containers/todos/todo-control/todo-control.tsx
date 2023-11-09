@@ -1,10 +1,11 @@
 import KrButton, { KrButtonType } from "../../../components/general/krButton/krButton";
-import KrInput from "../../../components/general/krInput/krInput";
+import { KrSearch } from "../../../components/general/krSearch/krSearch";
 
  export function TodoControl( /*{ board }: {board: Board} */) {
-  const handelSearch = (data: string) => {
-    console.log(data);
-  }
+  
+  const handleSearch = (text: string | null) => {
+    console.log('Search ' + text);
+  };
 
   return (
     <div className='control-panel'>
@@ -12,8 +13,7 @@ import KrInput from "../../../components/general/krInput/krInput";
         {/*<span className="board">  board.title </span>*/}
         <KrButton type={KrButtonType.ACTION} iconConfig={{ name: 'date_range' }} />
         <KrButton type={KrButtonType.ACTION} iconConfig={{ name: 'cloud_done' }} />
-        <KrButton type={KrButtonType.ACTION} iconConfig={{ name: 'search' }} />
-        <KrInput onAction={handelSearch}/>
+        <KrSearch onSearch={handleSearch}/>
         <KrButton type={KrButtonType.ACTION} iconConfig={{ name: 'filter_list' }} />
         <KrButton type={KrButtonType.ACTION} iconConfig={{ name: 'add' }} />
       </div>

@@ -1,0 +1,19 @@
+@import '../variables/variables.scss';
+
+.kr-search {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&>* {
+		margin: 0 4px;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
