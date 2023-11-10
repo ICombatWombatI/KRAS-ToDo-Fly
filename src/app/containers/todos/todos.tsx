@@ -7,9 +7,21 @@ import { TodoControl } from './todo-control/todo-control';
 export function Todos() {
   const { todos } = useLoaderData() as { todos: Todo[] };
 
+  const handleSearch = (text: string | null) => {
+    console.log(text);
+  };
+
+  const handleTaskDone = () => {
+
+  };
+
+  const handleAddTask = () => {
+
+  };
+
   return (
   <div className='todos'>
-    <TodoControl/>
+    <TodoControl onSearch={handleSearch} onTaskDone={handleTaskDone} onAddTask={handleAddTask}/>
 
     <div className='list'>
       { todos.map(todo => <TodoCard key={todo.id} todo={todo}/>) }
