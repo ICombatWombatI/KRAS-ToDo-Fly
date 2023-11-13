@@ -1,7 +1,7 @@
 import KrButton, { KrButtonType } from '../../../components/general/krButton/krButton';
 import { Todo } from '../../../models/todo.model';
 
-export function TodoCard({ todo } : {todo: Todo} ) {
+export function TodoCard({ todo, onEdit } : {todo: Todo, onEdit: any} ) {
 
   console.log(todo)
 
@@ -13,8 +13,7 @@ export function TodoCard({ todo } : {todo: Todo} ) {
         {todo.title}
       </span>
     </div>
-    <KrButton type={KrButtonType.ACTION} iconConfig={{ name: 'edit' }}/>
-   
+    <KrButton onToggle={onEdit} type={KrButtonType.ACTION} iconConfig={{ name: 'edit' }}/>
   </div>
   )
 }

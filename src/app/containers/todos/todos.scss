@@ -51,7 +51,7 @@
 			padding: 0 8px;
 
 			border-radius: 4px;
-			background-color: rgb(42, 42, 42);
+			background-color: $primaryLight;
 
 			.card-title {
 				flex: 1;
@@ -67,4 +67,9 @@
 			}
 		}
 	}
+}
+
+.task-details {
+	width: 300px;
+	height: 300px;
 }
