@@ -3,6 +3,7 @@ import KrDialog from "../../../components/general/krDialog/krDialog";
 import KrDialogActions from "../../../components/general/krDialog/krDialogActions";
 import KrDialogTitle from "../../../components/general/krDialog/krDialogTitle";
 import { Todo } from "../../../models/todo.model";
+import KrDialogContent from "../../../components/general/krDialog/krDialogContent";
 
 export interface TaskDetailsProps {
   //openDialog: () => void;
@@ -26,7 +27,6 @@ const TaskDetailsDialog = forwardRef<TaskDetailsRef, TaskDetailsProps>((props, r
 	
 	useImperativeHandle(ref, () => ({
       openDialog(todo) {
-        console.log(todo);
         openHandler(todo);
       }
   }));
@@ -34,9 +34,9 @@ const TaskDetailsDialog = forwardRef<TaskDetailsRef, TaskDetailsProps>((props, r
   return (<>
     <KrDialog open={!!todo} classes={'task-details'}>
       <KrDialogTitle title={todo?.title ?? '' } onClose={closeHandler}/>
-        <div className="kr-dialog-content"> 
-          
-        </div>
+        <KrDialogContent>
+          test
+        </KrDialogContent>
       <KrDialogActions/>
     </KrDialog>
   </>);
