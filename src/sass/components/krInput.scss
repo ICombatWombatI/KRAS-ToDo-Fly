@@ -1,47 +1,83 @@
 @import '../variables/variables.scss';
 
-.kr-input-container {
-	padding: 0 8px;
-	border-bottom: 1px solid white;
+.kr-input {
 	position: relative;
 
-	&:focus-within {
-		.underline {
-			background-color: $secondary;
-			height: 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	padding-top: 14px;
+	padding-bottom: 12px;
+
+	&.kr-error {
+		.kr-input-container {
+			.underline {
+				background-color: $error !important
+			}
+
+			input {
+				border-bottom: 1px solid $error;
+				caret-color: $error;
+
+				&::placeholder {
+					color: rgba($error, 0.6);
+				}
+			}
+		}
+	}
+
+	.kr-input-container {
+		position: relative;
+		display: flex;
+		height: 24px;
+
+		input {
+			height: 100%;
 			width: 100%;
 
-			transition: width .3s;
+			padding: 0 8px;
+
+			border: none;
+			border-bottom: 1px solid $white;
+			background-color: rgba($white, 0.0);
+			color: $white;
+
+			&:focus-visible {
+				outline: none;
+			}
+
+			&::placeholder {
+				color: rgba($white, 0.6);
+			}
+		}
+
+		&:focus-within {
+			.underline {
+				background-color: $secondary;
+				height: 1px;
+				width: 100%;
+
+				transition: width .3s;
+			}
+		}
+
+		.underline {
+			display: inline-block;
+			width: 0;
+			height: 2px;
+
+			position: absolute;
+			left: 0;
+			bottom: 0;
+
+			background-color: $secondary;
+			animation-duration: 10ms;
 		}
 	}
 
-	.underline {
-		background-color: $secondary;
-		height: 2px;
-		width: 100%;
-
-		transition: width .3s;
-	}
-
-	.kr-input {
-		border: none;
-		background-color: #ffffff00;
-		min-height: 28px;
-
-		color: white;
-
-		&:focus-visible {
-			outline: none;
-		}
-	}
-
-	.underline {
-		position: absolute;
-		display: inline-block;
-		width: 0;
-		height: 2x;
-		left: 0;
-		bottom: -1px;
-		animation-duration: 10ms;
+	.kr-error-container {
+		display: flex;
+		padding: 2px 8px;
 	}
 }

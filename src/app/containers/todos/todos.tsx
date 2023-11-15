@@ -2,21 +2,20 @@ import { useLoaderData } from 'react-router-dom';
 import { Todo } from '../../models/todo.model';
 import { TodoCard } from './todo-card/todo-card';
 import { TodoControl } from './todo-control/todo-control';
-import TaskDetailsDialog, { TaskDetailsRef } from './task-details/task-details';
+import TaskDetailsDialog, { TaskDetailsDialogRef } from './task-details-dialog/task-details-dialog';
 import { createRef } from 'react';
  import './todos.scss';
 
 export function Todos() {
   const { todos } = useLoaderData() as { todos: Todo[] };
-  const dialogRef = createRef<TaskDetailsRef>();
+  const dialogRef = createRef<TaskDetailsDialogRef>();
 
-  
   const handleSearch = (text: string | null) => {
     console.log(text);
   };
 
   const handleTaskDone = () => {
-
+  dialogRef.current?.openDialog(null);
   };
 
   const handleAddTask = () => {

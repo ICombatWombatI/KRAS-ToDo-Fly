@@ -4,25 +4,27 @@ import KrDialogActions from "../../../components/general/krDialog/krDialogAction
 import KrDialogTitle from "../../../components/general/krDialog/krDialogTitle";
 import { Todo } from "../../../models/todo.model";
 import KrDialogContent from "../../../components/general/krDialog/krDialogContent";
+import TaskDetailsForm from "../task-details-form/task-details-form";
 
-export interface TaskDetailsProps {
+export interface TaskDetailsDialogProps {
   //openDialog: () => void;
 }
 
-export interface TaskDetailsRef {
-  openDialog: (todo: Todo) => void;
+export interface TaskDetailsDialogRef {
+  openDialog: (todo: Todo | null) => void;
 }
 
-const TaskDetailsDialog = forwardRef<TaskDetailsRef, TaskDetailsProps>((props, ref) => {
-  //const [open, setOpen] = useState(false);
+const TaskDetailsDialog = forwardRef<TaskDetailsDialogRef, TaskDetailsDialogProps>((props, ref) => {
+  const [open, setOpen] = useState(false);
   const [todo, setTodo] = useState<Todo | null>(null);
 
 	const closeHandler = () => {
-    setTodo(null);
+    setOpen(false);
   };
 
-	const openHandler = (todo: Todo) => {
-  	setTodo(todo);
+	const openHandler = (todo: Todo | null) => {
+  	setOpen(true);
+    setTodo(todo);
   };
 	
 	useImperativeHandle(ref, () => ({
@@ -32,10 +34,10 @@ const TaskDetailsDialog = forwardRef<TaskDetailsRef, TaskDetailsProps>((props, r
   }));
 
   return (<>
-    <KrDialog open={!!todo} classes={'task-details'}>
+    <KrDialog open={open} classes={'task-details'}>
       <KrDialogTitle title={todo?.title ?? '' } onClose={closeHandler}/>
         <KrDialogContent>
-          test
+          <TaskDetailsForm/>
         </KrDialogContent>
       <KrDialogActions/>
     </KrDialog>

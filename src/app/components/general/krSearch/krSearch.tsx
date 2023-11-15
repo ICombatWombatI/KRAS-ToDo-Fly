@@ -30,7 +30,7 @@ interface KrSearchProps {
   return (
     <div className="kr-search">
       <KrButton type={KrButtonType.ACTION} iconConfig={{ name: active ? 'search_off' : 'search' }} onToggle={handelActive} />
-      { active ? <KrInput onEnterDown={handelSearch} focus={true}/> : '' }
+      { active ? <KrInput onEnterDown={handelSearch} focus={true} label={'Search'}/> : '' }
     </div>
   )
 }

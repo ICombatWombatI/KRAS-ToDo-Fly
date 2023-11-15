@@ -70,6 +70,12 @@
 }
 
 .task-details {
-	width: 300px;
-	height: 300px;
+	width: 420px;
+	height: 460px;
+
+	background-color: #6f5bf0 !important;
+
+	.kr-dialog-title {
+		color: white !important;
+	}
 }

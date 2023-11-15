@@ -17,7 +17,6 @@ h4 {
 }
 
 .body_3 {
-  color: $black;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -26,7 +25,6 @@ h4 {
 }
 
 .body_2 {
-  color: $black;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -35,7 +33,6 @@ h4 {
 }
 
 .body_1 {
-  color: $black;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 0.875rem;
@@ -64,4 +61,8 @@ button {
 
 .spacing-1 {
   letter-spacing: 1px;
+}
+
+.error {
+  color: $error;
 }
